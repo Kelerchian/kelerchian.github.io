@@ -1,58 +1,22 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>
-      Under Construction
-    </title>
-    <script src="script/vile.js"></script>
-    <style>
-      body,html{
-        width: 100%;
-        height: 100%;
-      }
-      body{
-        display: flex;
-        flex-flow: column;
-        align-items: center;
-        justify-content: center;
-        background: #333;
-        color: #777;
-        font-family: sans-serif;
-      }
-      body>*{
-        text-align: center;
-        font-weight: normal;
-      }
-      .white{
-        color: #ddd;
-        font-size: 1.2em;
-        font-family: serif;
-        font-weight: bold;
-      }
-    </style>
-  </head>
-  <body>
-    <h2>Site is under construction</h2>
-    <h2>You will be redirected to <em class='white'>Kley&Verin</em> in <span class="white" vile-weave="countdown">10</span></h2>
-  </body>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+	<style>
+	#canvas{
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		z-index: 0;
+	}
+	#main{
+		position: relative;
+		z-index: 1;
+		color: white;
+	}
+	</style>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/86/three.min.js"></script>
+	<script src="scripts/anvas.js"></script>
+	<script src="https://www.celljs.org/cell.js"></script>
+	<script src="scripts/index.js"></script>
 </html>
-<script>
-  var countdown = 10
-  var interval;
-  var page = {}
-  window.onload = function(){
-    Vile.initialize(page)
-    interval = setInterval(function(){
-      if(countdown>1){
-        countdown--
-        page.countdown.innerText = countdown
-      }else{
-        redirect()
-      }
-    },1000)
-    function redirect(){
-      clearInterval(interval)
-      window.location = "http://kleyverin.github.io"
-    }
-  }
-</script>

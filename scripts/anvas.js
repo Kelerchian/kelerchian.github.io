@@ -243,7 +243,11 @@ var Anvas = (function(){
 			c.mesh.position.x = Math.random() - 0.5
 			c.mesh.position.y = Math.random() - 0.5
 		}
-		window.addEventListener('click', function(){
+
+		/**
+		* Pointer Action Listener
+		*/
+		var onPointerAction = function(){
 			var character = new Character()
 			character.enable()
 			character.mesh.position.x = mouse.x
@@ -257,10 +261,12 @@ var Anvas = (function(){
 				// clearTimeout( Character.list[0].deletionTimeout )
 				Character.list[0].delete()
 			}
-		}, true)
+		}
 
-
-		window.addEventListener('mousemove', function(e){
+		/**
+		* Pointer Move Listener
+		*/
+		var onPointerMove = function(e){
 			var x = e.clientX / window.innerWidth * 2 - 1
 			var y = - (e.clientY / window.innerHeight) * 2 + 1
 
@@ -270,8 +276,12 @@ var Anvas = (function(){
 			// pointLight.position.x = mouse.x
 			// pointLight.position.y = mouse.y
 
-		}, true)
+		}
+		window.addEventListener('click', onPointerAction , true)
+		window.addEventListener('mousemove', onPointerMove , true)
 
+		window.addEventListener('touchstart', onPointerAction, true)
+		window.addEventListener('touchstart', onPointerMove, true)
 
 		function render(){
 			renderer.render(scene, camera)

@@ -17,14 +17,14 @@ var body = {
 	id: "main",
 	class: "container",
 	$components: [
-		row({
-			$components:[
-				col("",{
-					class: "text-center",
-					$components: [{ $type: "h1", $text: "Hello World"}]
-				})
-			]
-		})
+		// row({
+		// 	$components:[
+		// 		col("",{
+		// 			class: "text-center",
+		// 			$components: [{ $type: "h1", $text: "Hello World"}]
+		// 		})
+		// 	]
+		// })
 	]
 }
 
@@ -33,6 +33,6 @@ var canvas = {
 	$type: "canvas",
 	id: "canvas",
 	$init: function(){
-		Anvas(this) 
+		Anvas(this)
 	}
 }

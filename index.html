@@ -1,22 +1,33 @@
 <!DOCTYPE html>
 <html>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-	<style>
-	#canvas{
-		position: fixed;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		z-index: 0;
-		pointer-events: none;
-	}
-	#main{
-		position: relative;
-		z-index: 1;
-	}
-	</style>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/86/three.min.js"></script>
-	<script src="scripts/anvas.js"></script>
-	<script src="https://www.celljs.org/cell.js"></script>
-	<script src="scripts/index.js"></script>
+	<head>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<link rel="stylesheet" href="style/style.css"/>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/86/three.min.js"></script>
+		<script src="scripts/anvas.js"></script>
+		<script src="scripts/index.js"></script>
+	</head>
+	<body>
+		<main id="main" class="container">
+			<h2 class="hi">Hi,</h2>
+			<div class="profile">
+				<p class="description">
+					I'm Alan, a backend+frontend web developer guy.
+				</p>
+				<p>
+					I'm a software developer working frequently, but not exclusively, with <a href='https://nodejs.org/en/'>Node</a>, <a href='https://expressjs.com/'>Express</a>, <a href='https://laravel.com/'>Laravel</a>, <a href='https://facebook.github.io/react/'>React</a>, and <a href='https://electron.atom.io/'>Electron</a>.
+				</p>
+				<p>
+					Have a look at my recent project <a href="https://github.com/Kelerchian/Caretaker">Caretaker</a> which aims to create a <code>json</code> and <code>file</code> transport via simple <code>HTML Form</code> and <code>React</code>. <small>(still pre-release and un-stable, albeit not buggy, so don't bother using it in production for now. Contributions are welcomed though)</small>
+				</p>
+			</div>
+			<ul class="contacts">
+				<li><a href="https://github.com/Kelerchian"><i class="fa fa-github"></i>Github</a></li>
+				<li><a href="mailto:v.alan.darmasaputra@gmail.com"><i class="fa fa-envelope"></i>Gmail</a></li>
+				<li><a href="https://www.facebook.com/alan.darmasaputra.7"><i class="fa fa-facebook"></i>Facebook</a></li>
+			</ul>
+		</main>
+		<canvas id="canvas"></canvas>
+	</body>
 </html>

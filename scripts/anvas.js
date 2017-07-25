@@ -48,9 +48,15 @@ var Anvas = (function(){
 	var CharacterMesh = function(geometryOption, materialOption){
 
 		var shadesOfGray = Math.round( Math.random() * 40 ) + 200
+		var shadesOfR = Math.round( Math.random() * 90 ) + 150
+		var shadesOfG = Math.round( Math.random() * 90 ) + 150
+		var shadesOfB = Math.round( Math.random() * 90 ) + 150
 
 		geometryOption = Object.assign(CharacterMeshData, geometryOption || {})
-		materialOption = Object.assign({ color: "rgb("+shadesOfGray+","+shadesOfGray+","+shadesOfGray+")"}, materialOption || {})
+		materialOption = Object.assign({
+			color: "rgb("+shadesOfR+","+shadesOfG+","+shadesOfB+")",
+			shininess: 100
+		}, materialOption || {})
 
 		return new THREE.Mesh(
 			new THREE.SphereGeometry(
@@ -244,10 +250,7 @@ var Anvas = (function(){
 			c.mesh.position.y = Math.random() - 0.5
 		}
 
-		/**
-		* Pointer Action Listener
-		*/
-		var onPointerAction = function(){
+		var spawnOne = function(){
 			var character = new Character()
 			character.enable()
 			character.mesh.position.x = mouse.x
@@ -259,8 +262,21 @@ var Anvas = (function(){
 
 			if(Character.list.length > Character.trait.maxCount){
 				// clearTimeout( Character.list[0].deletionTimeout )
-				Character.list[0].delete()
+
+				// delete excess character
+				Character.list.slice(0, Character.list.length - Character.trait.maxCount).forEach(function(character){
+					character.delete()
+				})
 			}
+		}
+
+		setInterval(spawnOne, 2000)
+
+		/**
+		* Pointer Action Listener
+		*/
+		var onPointerAction = function(){
+			spawnOne()
 		}
 
 		/**
